@@ -1,4 +1,3 @@
-package Resturant;
 
 public class Customer {
     private String customerName;
