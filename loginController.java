@@ -14,16 +14,15 @@ public class LoginScreen extends VBox {
     private JTextField passwordField;
     private Label messageLabel;
 
-    // Constructor
+ 
     public LoginScreen(Stage stage) {
-        // Declare UI components
+       
         Label username = new Label();
         Label password = new Label();
         Button loginButton = new Button("Login");
         messageLabel = new Label();
 
-        // Set up layout
-        this.setSpacing(10);
+          this.setSpacing(10);
         this.setAlignment(Pos.CENTER);
         this.getChildren().addAll(username, password, loginButton, messageLabel);
 
@@ -31,18 +30,18 @@ public class LoginScreen extends VBox {
         loginButton.setOnAction(e -> handleLogin(stage));
     }
 
-    // Handle login logic
+    //  login 
     private void handleLogin(Stage stage)
     {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        // Here we are just using a simple check, you can replace this with actual validation
-        if (username.equals("waiter") && password.equals("password123")) {
+    
+        if (username.equals(staff.txt) && password.equals(staff.txt)) {
             messageLabel.setText("Login Successful!");
             messageLabel.setStyle("-fx-text-fill: green;");
 
-            // After login, switch to the Table Status screen
+            // After login switch to the Table Status screen
             TableStatus tableStatus = new TableStatus(stage);
             Scene tableScene = new Scene(tableStatus, 600, 400);
             stage.setScene(tableScene);
