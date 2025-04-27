@@ -26,7 +26,7 @@ public class LoginScreen extends VBox {
         this.setAlignment(Pos.CENTER);
         this.getChildren().addAll(username, password, loginButton, messageLabel);
 
-        // Handle login button click
+        // login button click
         loginButton.setOnAction(e -> handleLogin(stage));
     }
 
@@ -41,12 +41,12 @@ public class LoginScreen extends VBox {
             messageLabel.setText("Login Successful!");
             messageLabel.setStyle("-fx-text-fill: green;");
 
-            // After login switch to the Table Status screen
+            // switch to the Table Status screen
             TableStatus tableStatus = new TableStatus(stage);
             Scene tableScene = new Scene(tableStatus, 600, 400);
             stage.setScene(tableScene);
         } else {
-            messageLabel.setText("Invalid credentials. Try again.");
+            messageLabel.setText("Invalid. Try again.");
             messageLabel.setStyle("-fx-text-fill: red;");
         }
     }
