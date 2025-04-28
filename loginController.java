@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 
 
 public class loginController {
-  // create labels, text feilds, and buttons 
+  // create labels, text fields, and buttons 
     @FXML
     private Label username;
     @FXML
@@ -27,10 +27,9 @@ public class loginController {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
             Parent tableStatusRoot = loader.load();
 
-            // Get the current stage (window)
             Stage stage = (Stage) usernameField.getScene().getWindow();
 
-            // Set the new Scene (Table Status screen)
+            //  sets the new screen
             Scene tableScene = new Scene(tableStatusRoot);
             stage.setScene(tableScene);
 
