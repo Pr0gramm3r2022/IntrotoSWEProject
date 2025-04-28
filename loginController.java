@@ -30,8 +30,8 @@ public class loginController {
             Stage stage = (Stage) usernameField.getScene().getWindow();
 
             //  sets the new screen
-            Scene tableScene = new Scene(tableStatusRoot);
-            stage.setScene(tableScene);
+            Scene FloorScene = new Scene(FloorStatusRoot);
+            stage.setScene(FloorScene);
 
         } catch (Exception e) {
         e.printStackTrace();
