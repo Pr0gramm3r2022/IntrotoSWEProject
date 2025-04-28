@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.jsrestaurantautomation.LoginController"
+            prefWidth="300" prefHeight="200">
+    <children>
+        <VBox alignment="CENTER" spacing="10" layoutX="50" layoutY="30" prefWidth="200">
+            <TextField fx:id="username" promptText="Username"/>
+            <PasswordField fx:id="password" promptText="Password"/>
+            <Button fx:id="loginBtn" text="Login"/>
+        </VBox>
+    </children>
+</AnchorPane>
