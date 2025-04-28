@@ -24,7 +24,7 @@ public class loginController {
         String pass = passField.getText();
         if(user.equals("Kimberly J") && pass.equals("kim123")) || user.equals("John S") && pass.equals("john123")|| user.equals("Bob M") && pass.equals("bob123")
         {
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("FloorScreen.fxml"));
             Parent tableStatusRoot = loader.load();
 
             Stage stage = (Stage) usernameField.getScene().getWindow();
