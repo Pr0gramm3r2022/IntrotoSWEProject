@@ -1,0 +1,99 @@
+using System;
+
+
+--Table: Customer
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    OrderID INT,
+    PhoneNumber INT,
+    Address VARCHAR(255)
+);
+
+-- Table: Staff
+CREATE TABLE Staff (
+    StaffID INT PRIMARY KEY,
+    DepartmentID INT, -- Foreign Key referencing Department
+    Role VARCHAR(50),
+    Name VARCHAR(100),
+    PhoneNumber INT,
+    Address VARCHAR(255)
+);
+
+-- Table: Department
+CREATE TABLE Department (
+    DepartmentID INT PRIMARY KEY,
+    DeptName VARCHAR(100)
+);
+
+-- Table:
+CREATE TABLE "Table" (
+    TableID INT PRIMARY KEY,
+    CustomerID INT, -- Foreign Key referencing Customer
+    OrderID INT -- Foreign Key referencing Order
+);
+
+-- Table: "Order"
+CREATE TABLE "Order" (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT, -- Foreign Key referencing Customer
+    TableID INT,    -- Foreign Key referencing "Table"
+    MenuItemID INT, -- Foreign Key referencing Menu
+    PaymentMethod VARCHAR(50),
+    StaffID INT     -- Foreign Key referencing Staff
+);
+
+-- Table: Menu
+CREATE TABLE Menu (
+    MenuItemID INT PRIMARY KEY,
+    ItemName VARCHAR(100)
+);
+
+-- Foreign Key Constraints
+
+-- Customer to Order
+ALTER TABLE Customer
+ADD CONSTRAINT FK_Customer_Order
+FOREIGN KEY (OrderID)
+REFERENCES "Order"(OrderID);
+
+-- Staff to Department
+ALTER TABLE Staff
+ADD CONSTRAINT FK_Staff_Department
+FOREIGN KEY (DepartmentID)
+REFERENCES Department(DepartmentID);
+
+-- Table to Customer
+ALTER TABLE "Table"
+ADD CONSTRAINT FK_Table_Customer
+FOREIGN KEY (CustomerID)
+REFERENCES Customer(CustomerID);
+
+-- Table to Order
+ALTER TABLE "Table"
+ADD CONSTRAINT FK_Table_Order
+FOREIGN KEY (OrderID)
+REFERENCES "Order"(OrderID);
+
+-- Order to Customer
+ALTER TABLE "Order"
+ADD CONSTRAINT FK_Order_Customer
+FOREIGN KEY (CustomerID)
+REFERENCES Customer(CustomerID);
+
+-- Order to "Table"
+ALTER TABLE "Order"
+ADD CONSTRAINT FK_Order_Table
+FOREIGN KEY (TableID)
+REFERENCES "Table"(TableID);
+
+-- Order to Menu
+ALTER TABLE "Order"
+ADD CONSTRAINT FK_Order_Menu
+FOREIGN KEY (MenuItemID)
+REFERENCES Menu(MenuItemID);
+
+-- Order to Staff
+ALTER TABLE "Order"
+ADD CONSTRAINT FK_Order_Staff
+FOREIGN KEY (StaffID)
+REFERENCES Staff(StaffID);
